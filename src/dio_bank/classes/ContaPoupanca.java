@@ -1,6 +1,10 @@
-package dio_bank;
+package dio_bank.classes;
 
 public class ContaPoupanca extends Conta {
+	
+    public ContaPoupanca(Cliente cliente) {
+        super(cliente);
+    }
 
 	@Override
 	public void imprimirExtrato() {

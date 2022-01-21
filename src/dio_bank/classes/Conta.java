@@ -1,4 +1,6 @@
-package dio_bank;
+package dio_bank.classes;
+
+import dio_bank.Interface.IConta;
 
 public abstract class Conta implements IConta {
 
@@ -8,10 +10,12 @@ public abstract class Conta implements IConta {
 	protected int agencia;
 	protected int conta;
 	protected double saldo;
+    protected Cliente cliente;
 	
-	public Conta() {
+	public Conta(Cliente cliente) {
 		this.agencia = AGENCIA_PADRAO;
 		this.conta = SEQUENCIAL++;
+        this.cliente = cliente;
 	}
 	
 	@Override
@@ -34,7 +38,7 @@ public abstract class Conta implements IConta {
 		return agencia;
 	}
 	
-	public int getNumero() {
+	public int getConta() {
 		return conta;
 	}
 	
@@ -43,6 +47,7 @@ public abstract class Conta implements IConta {
 	}
 	
 	protected void imprimirInfosComuns() {
+        System.out.println(String.format("Titular: %s", this.cliente.getNome()));		
 		System.out.println(String.format("Agência: %d", this.agencia));
 		System.out.println(String.format("Conta: %d", this.conta));
 		System.out.println(String.format("Seu saldo é: %.2f", this.saldo));

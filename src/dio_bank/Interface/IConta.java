@@ -1,4 +1,6 @@
-package dio_bank;
+package dio_bank.Interface;
+
+import dio_bank.classes.Conta;
 
 public interface IConta {
 	
