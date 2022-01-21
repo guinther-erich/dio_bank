@@ -2,9 +2,17 @@ package dio_bank;
 
 public abstract class Conta implements IConta {
 
-	public int agencia;
-	public int conta;
-	public double saldo;
+	private static final int AGENCIA_PADRAO = 1;
+	private static int SEQUENCIAL = 1;
+	
+	protected int agencia;
+	protected int conta;
+	protected double saldo;
+	
+	public Conta() {
+		this.agencia = AGENCIA_PADRAO;
+		this.conta = SEQUENCIAL++;
+	}
 	
 	@Override
 	public void sacar(double valor) {
